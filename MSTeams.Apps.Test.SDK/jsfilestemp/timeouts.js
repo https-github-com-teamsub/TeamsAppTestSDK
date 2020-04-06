@@ -1,0 +1,3 @@
+var { setDefaultTimeout } = require('cucumber');
+setDefaultTimeout(60 * 1000);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGltZW91dHMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi90aW1lb3V0cy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxJQUFJLEVBQUMsaUJBQWlCLEVBQUMsR0FBRyxPQUFPLENBQUMsVUFBVSxDQUFDLENBQUM7QUFFOUMsaUJBQWlCLENBQUMsRUFBRSxHQUFHLElBQUksQ0FBQyxDQUFDIn0=
