@@ -1,0 +1,9 @@
+{
+  "registration": {
+    "firstname": "User firstname",
+    "lastname": "User lastname",
+    "useremail": "test@test.com",
+    "password":"password",
+    "cpassword":"password"
+  }
+}

@@ -1,6 +1,6 @@
 
 import {After,Before, Status, BeforeAll,AfterAll} from "cucumber";
-import { config } from "../config/config";
+import { config } from "../Config/Config";
 
 import { browser } from "protractor";
 
@@ -29,7 +29,7 @@ After(async function(scenario) {
  
         this.attach(screenshot,"image/png");
   }
-
+/*
 BeforeAll({timeout: 100 * 1000}, async () => {
     await browser.get(config.baseUrl);
 });
@@ -38,7 +38,7 @@ BeforeAll({timeout: 100 * 1000}, async () => {
 AfterAll({timeout: 100 * 1000}, async () => {
     await browser.quit();
 });
-
+*/
 });
 
 

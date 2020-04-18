@@ -1,6 +1,6 @@
 Feature: Polly teams bot help users to create polls
 
-    @regression
+    @PollyOne
     Scenario: Verify Polly App response in channel scope
         Given You login to "https://teams.microsoft.com" using ID "admin@M365x218086.onmicrosoft.com " and Password "bxK7kf8u5D"
         When You go to "PollyAutoTest" Team channel

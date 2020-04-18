@@ -2,37 +2,39 @@ import { Given, When, Then } from "cucumber";
 import { browser, $, element, protractor, by, Key } from "protractor";
 
 let until = protractor.ExpectedConditions;
-browser.waitForAngularEnabled(true);
-browser.ignoreSynchronization = true;
-browser.manage().timeouts().implicitlyWait(10000);
+
 let elem = element(by.css("div[aria-label='Start a new conversation. Type @ to mention someone.']"));
 
 Given('You login to {string} using ID {string} and Password {string}', async (teamsUrl, id, password) => {
+    browser.waitForAngularEnabled(true);
+    browser.ignoreSynchronization = true;
+    browser.manage().timeouts().implicitlyWait(100000);
+    browser.manage().window().maximize();
     await browser.get('https://teams.microsoft.com');
-    await browser.sleep(3000);
     await $("input[type='email']").sendKeys("admin@M365x218086.onmicrosoft.com");
-    await browser.sleep(3000);
     await $("input[value='Next']").click();
-    await browser.sleep(3000);
+
+    await browser.wait(until.visibilityOf($("input[type='password']")), 5000, 'Element taking too long to appear in the DOM');
     await $("input[type='password']").sendKeys("bxK7kf8u5D");
     await browser.sleep(5000);
+    // await browser.wait(until.elementToBeClickable(element(by.id("idSIButton9"))), 5000, 'Element taking too long to appear in the DOM');
     await browser.actions().mouseMove(element(by.id("idSIButton9"))).click().perform()
-    await browser.sleep(5000);
+    await browser.wait(until.elementToBeClickable($("input[value='Yes']")), 5000, 'Element taking too long to appear in the DOM');
     await browser.actions().mouseMove($("input[value='Yes']")).click().perform()
-    await browser.sleep(3000);
-    let elem = element(by.css(".use-app-lnk"));
-    await browser.wait(until.elementToBeClickable(elem), 5000, 'Element taking too long to appear in the DOM');
-    await elem.click();
-    await browser.sleep(8000);
+  // browser.ignoreSynchronization = false;
+    //await browser.sleep(3000);
+    let elem2 = element(by.css(".use-app-lnk"));
+    await browser.wait(until.elementToBeClickable(elem2), 5000, 'Element taking too long to appear in the DOM');
+    await elem2.click();
+  //  await browser.sleep(8000);
 });
 Given('You go to {string} Team channel', async (string) => {
+   // await browser.sleep(100000);
     let elem = element(by.xpath("//span[contains(text(),'PollyAutoTest')]"));
     await browser.wait(until.elementToBeClickable(elem), 5000, 'Element taking too long to appear in the DOM');
     await elem.click();
-    await browser.sleep(3000);
 });
 Given('Navigate to channel compose box and you type {string}', async (appName) => {
-    await browser.sleep(10000);
     await browser.wait(until.elementToBeClickable(elem), 5000, 'Element taking too long to appear in the DOM');
     browser.actions().mouseDown(elem)
         .click()
@@ -49,10 +51,10 @@ When('Say {string} to polly bot', async (command) => {
     await browser.sleep(3000);
     await elem.sendKeys(command);
     await browser.sleep(3000);
-    await elem.sendKeys(Key.ENTER);
+    await elem.sendKeys(Key.ENTER)
 });
 Then('You should be able to send the command with out issues', async () => {
-    await browser.sleep(5000);
+    browser.quit();
 });
 Then('You should get a respose from Polly bot', async () => {
     await browser.sleep(5000);
