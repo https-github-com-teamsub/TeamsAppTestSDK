@@ -1,7 +1,8 @@
 import * as fs from 'fs';
 import * as nconf from 'nconf';
+import json from 'load-json-file';
 
-export class dataProvider {
+export class DataProvider {
 
     /**
      * This method is used to read data from Json file using language and dataname filters
@@ -43,4 +44,8 @@ export class dataProvider {
             });
         });
     };
+
+    static GetTestDataFromJson(filePath:string) {
+        return json.sync(filePath);
+     }
 }
