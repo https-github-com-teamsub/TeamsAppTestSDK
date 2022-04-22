@@ -23,7 +23,7 @@
     "cucumber-html-reporter": "^5.1.0",
     "jasmine": "^3.5.0",
     "load-json-file": "^6.2.0",
-    "nconf": "^0.10.0",
+    "nconf": "^0.11.4",
     "protractor": "^5.4.3",
     "protractor-cucumber-framework": "^6.2.0",
     "ts-node": "^8.6.2",
